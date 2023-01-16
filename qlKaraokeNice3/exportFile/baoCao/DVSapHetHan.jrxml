@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SHH" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7875f3b6-ad1d-48d9-9333-8928056fd02f">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (16)"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#9932CC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#EABFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="SHH" uuid="90ca8ca5-ee39-4286-be74-07a9f86c795d">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (16)"/>
+		<queryString language="SQL">
+			<![CDATA[select   "DichVu"."maDichVu", "DichVu"."tenDichVu" , gia = CONCAT(CAST( ([gia] /1000) AS DECIMAL(12,3) ),space(1),'VNĐ')  ,[donViTinh],[soLuong],FORMAT ( "DichVu"."hanSuDung" , 'dd-MM-yyyy') as HSD,
+	CASE [trangThaiKD]
+			WHEN 1 THEN N'Đang Kinh Doanh'
+			WHEN 0 THEN N'Ngừng Kinh Doanh'
+		END as trangThai
+	from  "DichVu" where  
+	DATEDIFF(DAY, GETDATE(), hanSuDung) <= 15 and   "DichVu"."soLuong" > 0]]>
+		</queryString>
+		<field name="maDichVu" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="maDichVu"/>
+			<property name="com.jaspersoft.studio.field.label" value="maDichVu"/>
+		</field>
+		<field name="tenDichVu" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="tenDichVu"/>
+			<property name="com.jaspersoft.studio.field.label" value="tenDichVu"/>
+		</field>
+		<field name="gia" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="gia"/>
+			<property name="com.jaspersoft.studio.field.label" value="gia"/>
+		</field>
+		<field name="donViTinh" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="donViTinh"/>
+			<property name="com.jaspersoft.studio.field.label" value="donViTinh"/>
+		</field>
+		<field name="soLuong" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="soLuong"/>
+			<property name="com.jaspersoft.studio.field.label" value="soLuong"/>
+		</field>
+		<field name="HSD" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="HSD"/>
+			<property name="com.jaspersoft.studio.field.label" value="HSD"/>
+		</field>
+		<field name="trangThai" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="trangThai"/>
+			<property name="com.jaspersoft.studio.field.label" value="trangThai"/>
+		</field>
+		<group name="maDichVu">
+			<groupExpression><![CDATA[$F{maDichVu}]]></groupExpression>
+		</group>
+		<group name="tenDichVu">
+			<groupExpression><![CDATA[$F{tenDichVu}]]></groupExpression>
+		</group>
+		<group name="gia">
+			<groupExpression><![CDATA[$F{gia}]]></groupExpression>
+		</group>
+		<group name="donViTinh">
+			<groupExpression><![CDATA[$F{donViTinh}]]></groupExpression>
+		</group>
+		<group name="soLuong">
+			<groupExpression><![CDATA[$F{soLuong}]]></groupExpression>
+		</group>
+		<group name="HSD">
+			<groupExpression><![CDATA[$F{HSD}]]></groupExpression>
+		</group>
+		<group name="trangThai">
+			<groupExpression><![CDATA[$F{trangThai}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[select   "DichVu"."maDichVu", "DichVu"."tenDichVu" , gia = CONCAT(CAST( ([gia] /1000) AS DECIMAL(12,3) ),space(1),'VNĐ')  ,[donViTinh],[soLuong],FORMAT ( "DichVu"."hanSuDung" , 'dd-MM-yyyy') as HSD,
+	CASE [trangThaiKD]
+			WHEN 1 THEN N'Đang Kinh Doanh'
+			WHEN 0 THEN N'Ngừng Kinh Doanh'
+		END as trangThai
+	from  "DichVu" where  
+	DATEDIFF(DAY, GETDATE(), hanSuDung) <= 15 and   "DichVu"."soLuong" > 0]]>
+	</queryString>
+	<field name="maDichVu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="maDichVu"/>
+		<property name="com.jaspersoft.studio.field.label" value="maDichVu"/>
+	</field>
+	<field name="tenDichVu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tenDichVu"/>
+		<property name="com.jaspersoft.studio.field.label" value="tenDichVu"/>
+	</field>
+	<field name="gia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="gia"/>
+		<property name="com.jaspersoft.studio.field.label" value="gia"/>
+	</field>
+	<field name="donViTinh" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="donViTinh"/>
+		<property name="com.jaspersoft.studio.field.label" value="donViTinh"/>
+	</field>
+	<field name="soLuong" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="soLuong"/>
+		<property name="com.jaspersoft.studio.field.label" value="soLuong"/>
+	</field>
+	<field name="HSD" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="HSD"/>
+		<property name="com.jaspersoft.studio.field.label" value="HSD"/>
+	</field>
+	<field name="trangThai" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="trangThai"/>
+		<property name="com.jaspersoft.studio.field.label" value="trangThai"/>
+	</field>
+	<group name="maDichVu">
+		<groupExpression><![CDATA[$F{maDichVu}]]></groupExpression>
+	</group>
+	<group name="tenDichVu">
+		<groupExpression><![CDATA[$F{tenDichVu}]]></groupExpression>
+	</group>
+	<group name="gia">
+		<groupExpression><![CDATA[$F{gia}]]></groupExpression>
+	</group>
+	<group name="donViTinh">
+		<groupExpression><![CDATA[$F{donViTinh}]]></groupExpression>
+	</group>
+	<group name="soLuong">
+		<groupExpression><![CDATA[$F{soLuong}]]></groupExpression>
+	</group>
+	<group name="HSD">
+		<groupExpression><![CDATA[$F{HSD}]]></groupExpression>
+	</group>
+	<group name="trangThai">
+		<groupExpression><![CDATA[$F{trangThai}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-11" y="27" width="571" height="53" backcolor="#BD59B6" uuid="ab530354-ecd5-4602-9446-554f252aa485"/>
+				<staticText>
+					<reportElement x="3" y="0" width="553" height="53" forecolor="#FFFFFF" backcolor="#EB81E4" uuid="7bda6345-0d4f-4d46-8a01-38d0b8c10370">
+						<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="26"/>
+						<paragraph firstLineIndent="40"/>
+					</textElement>
+					<text><![CDATA[DANH SÁCH DỊCH VỤ SẮP HẾT HẠN]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="163" splitType="Stretch">
+			<componentElement>
+				<reportElement x="-11" y="0" width="571" height="60" uuid="28179020-3e05-4ceb-bf82-31185d2be800">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="SHH" uuid="3a95dfa4-a05c-469c-b5bf-9cf292cfb422">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="80" uuid="4e1a3844-d5cc-41da-b59a-a45853266a56">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="80" height="30" uuid="25cbbd70-8177-4141-9383-bbf5b53f7d1a">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[Mã DV]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="30" uuid="f519f14d-e9c5-4bb1-82f8-59060610e064">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{maDichVu}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="69e21e22-c833-466b-855c-3912b29f3460">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="8dcc001d-224a-4192-b83a-4fc3d8cfb8ca"/>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[Tên DV]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="30" uuid="f3149347-b883-48ca-b08c-afd6069e7727">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tenDichVu}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="76" uuid="5f9af663-fe6e-4f6d-a2ca-f9e6e3ccb9fb">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="76" height="30" uuid="ca605ef9-4f52-4ec1-9149-96ed13851e07"/>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[Giá]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="76" height="30" uuid="2aaf7ea9-ba57-49eb-ad59-63d46c41d1d1">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{gia}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="84" uuid="48244ade-328c-4d53-af50-7866fd9a9310">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="84" height="30" uuid="43a43693-da45-4f80-b67e-86f94660de3e"/>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[Đơn Vị Tính]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="84" height="30" uuid="84ce5f6a-ac61-4c26-a168-ff4dce2a46ba">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{donViTinh}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="ef340599-5265-487d-8820-7f8a9bdf669d">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="b21155ad-98e0-4fdb-a0d6-8f69d33549f1"/>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[Số lượng]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="30" uuid="42a837c3-3a43-4bf6-9aaa-0e65772b4ec5">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{soLuong}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="94d0f11d-9973-4646-8767-e1c92b24680a">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="80" height="30" uuid="6fb086ee-e059-4cb6-b5b6-15aafd976e46"/>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[HSD]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="30" uuid="ce075788-8071-4977-b4e5-da6e1f21e230">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{HSD}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="111" uuid="12c0f565-ce4e-47cf-9a0f-6d6f0af9d8f4">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="111" height="30" uuid="7c135ce7-c6fd-43a0-8991-943b46098b84"/>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[ Trạng thái]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="111" height="30" uuid="d6cef05d-1b87-42f2-b65c-05341eee43f4">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="13"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{trangThai}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+</jasperReport>

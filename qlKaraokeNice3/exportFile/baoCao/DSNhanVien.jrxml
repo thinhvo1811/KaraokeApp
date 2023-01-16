@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DSNV" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a0e71871-0f7d-4db5-ad66-c5bd8c3a5449">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="nv"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#9400D3">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#ECBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dsnv" uuid="dcf4349a-0147-41e4-8f3f-bbee4389eb30">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="nv"/>
+		<queryString language="SQL">
+			<![CDATA[select [maNhanVien],[tenNhanVien],
+             CASE [gioiTinh]
+			WHEN 1 THEN 'Nam'
+			WHEN 0 THEN N'Nữ'
+		END as GioiTinh,FORMAT ([ngaySinh] , 'dd-MM-yyyy') as NS ,[soCMND],[soDT],[diaChi],[tenChucVu]
+from [dbo].[NhanVien] NV JOIN [dbo].[ChucVu] CV ON NV.maChucVu=CV.maChucVu]]>
+		</queryString>
+		<field name="maNhanVien" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="maNhanVien"/>
+			<property name="com.jaspersoft.studio.field.label" value="maNhanVien"/>
+		</field>
+		<field name="tenNhanVien" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="tenNhanVien"/>
+			<property name="com.jaspersoft.studio.field.label" value="tenNhanVien"/>
+		</field>
+		<field name="GioiTinh" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="GioiTinh"/>
+			<property name="com.jaspersoft.studio.field.label" value="GioiTinh"/>
+		</field>
+		<field name="NS" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="NS"/>
+			<property name="com.jaspersoft.studio.field.label" value="NS"/>
+		</field>
+		<field name="soCMND" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="soCMND"/>
+			<property name="com.jaspersoft.studio.field.label" value="soCMND"/>
+		</field>
+		<field name="soDT" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="soDT"/>
+			<property name="com.jaspersoft.studio.field.label" value="soDT"/>
+		</field>
+		<field name="diaChi" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="diaChi"/>
+			<property name="com.jaspersoft.studio.field.label" value="diaChi"/>
+		</field>
+		<field name="tenChucVu" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="tenChucVu"/>
+			<property name="com.jaspersoft.studio.field.label" value="tenChucVu"/>
+		</field>
+		<group name="maNhanVien">
+			<groupExpression><![CDATA[$F{maNhanVien}]]></groupExpression>
+		</group>
+		<group name="tenNhanVien">
+			<groupExpression><![CDATA[$F{tenNhanVien}]]></groupExpression>
+		</group>
+		<group name="GioiTinh">
+			<groupExpression><![CDATA[$F{GioiTinh}]]></groupExpression>
+		</group>
+		<group name="NS">
+			<groupExpression><![CDATA[$F{NS}]]></groupExpression>
+		</group>
+		<group name="soCMND">
+			<groupExpression><![CDATA[$F{soCMND}]]></groupExpression>
+		</group>
+		<group name="soDT">
+			<groupExpression><![CDATA[$F{soDT}]]></groupExpression>
+		</group>
+		<group name="diaChi">
+			<groupExpression><![CDATA[$F{diaChi}]]></groupExpression>
+		</group>
+		<group name="tenChucVu">
+			<groupExpression><![CDATA[$F{tenChucVu}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[select [maNhanVien],[tenNhanVien],
+             CASE [gioiTinh]
+			WHEN 1 THEN 'Nam'
+			WHEN 0 THEN N'Nữ'
+		END as GioiTinh,FORMAT ([ngaySinh] , 'dd-MM-yyyy') as NS ,[soCMND],[soDT],[diaChi],[tenChucVu]
+from [dbo].[NhanVien] NV JOIN [dbo].[ChucVu] CV ON NV.maChucVu=CV.maChucVu]]>
+	</queryString>
+	<field name="maNhanVien" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="maNhanVien"/>
+		<property name="com.jaspersoft.studio.field.label" value="maNhanVien"/>
+	</field>
+	<field name="tenNhanVien" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tenNhanVien"/>
+		<property name="com.jaspersoft.studio.field.label" value="tenNhanVien"/>
+	</field>
+	<field name="GioiTinh" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="GioiTinh"/>
+		<property name="com.jaspersoft.studio.field.label" value="GioiTinh"/>
+	</field>
+	<field name="NS" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NS"/>
+		<property name="com.jaspersoft.studio.field.label" value="NS"/>
+	</field>
+	<field name="soCMND" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="soCMND"/>
+		<property name="com.jaspersoft.studio.field.label" value="soCMND"/>
+	</field>
+	<field name="soDT" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="soDT"/>
+		<property name="com.jaspersoft.studio.field.label" value="soDT"/>
+	</field>
+	<field name="diaChi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="diaChi"/>
+		<property name="com.jaspersoft.studio.field.label" value="diaChi"/>
+	</field>
+	<field name="tenChucVu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tenChucVu"/>
+		<property name="com.jaspersoft.studio.field.label" value="tenChucVu"/>
+	</field>
+	<group name="maNhanVien">
+		<groupExpression><![CDATA[$F{maNhanVien}]]></groupExpression>
+	</group>
+	<group name="tenNhanVien">
+		<groupExpression><![CDATA[$F{tenNhanVien}]]></groupExpression>
+	</group>
+	<group name="GioiTinh">
+		<groupExpression><![CDATA[$F{GioiTinh}]]></groupExpression>
+	</group>
+	<group name="NS">
+		<groupExpression><![CDATA[$F{NS}]]></groupExpression>
+	</group>
+	<group name="soCMND">
+		<groupExpression><![CDATA[$F{soCMND}]]></groupExpression>
+	</group>
+	<group name="soDT">
+		<groupExpression><![CDATA[$F{soDT}]]></groupExpression>
+	</group>
+	<group name="diaChi">
+		<groupExpression><![CDATA[$F{diaChi}]]></groupExpression>
+	</group>
+	<group name="tenChucVu">
+		<groupExpression><![CDATA[$F{tenChucVu}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-11" y="28" width="572" height="53" backcolor="#BD59B6" uuid="59ef60e0-91c6-445d-9791-50c644b82cd2"/>
+				<staticText>
+					<reportElement x="60" y="0" width="506" height="53" forecolor="#FFFFFF" backcolor="#EB81E4" uuid="de15850c-d31f-4240-b40d-4390e19efbb6">
+						<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="26"/>
+						<paragraph firstLineIndent="40"/>
+					</textElement>
+					<text><![CDATA[DANH SÁCH NHÂN VIÊN]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="75" splitType="Stretch">
+			<componentElement>
+				<reportElement x="-11" y="0" width="572" height="60" uuid="79359eb1-7c05-4c73-bbf5-1f8694cc1fbe">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsnv" uuid="429a10ec-47b9-4772-8df0-3d546dc94490">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="50" uuid="c5756964-0f66-4ced-8027-f78c20f9bcd9">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="50" height="30" uuid="db2efeb8-3f79-4bc7-9b15-88b08f5ec11d">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[Mã NV]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="30" uuid="02182408-42e7-4aa5-903a-d0af9444b310">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="3"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{maNhanVien}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="2014c05b-6989-4f77-ae73-111bf00fa34e">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30" uuid="a2ec78d1-d091-4f73-9d44-a54f8ffb0362">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[Tên NV]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="30" uuid="02782113-1cae-4b40-91ef-e9d3761a578f"/>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="3"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tenNhanVien}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="10f076ab-b66c-4c1f-832e-d0fe96d3bf76">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="50" height="30" uuid="83084d4f-a003-4b20-a6af-88c4dfdefe4a">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[Giới tính]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="30" uuid="8304523c-bdba-49e0-a0ff-9e6fdf229a67"/>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="3"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{GioiTinh}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="5c993982-1b19-40a9-8791-d8a37a237a17">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="dc7f810b-42a9-46c2-b191-41472dd3a0b7">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[Ngày sinh]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="30" uuid="77fe94a8-4c6c-49c3-adfb-7db91b90af8b"/>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="3"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{NS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="24a9ad86-0321-475c-95f6-ace07513af00">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="d16880fb-c874-4e95-98f4-a3e2ce2a71f4">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[Số CMND]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="30" uuid="bba90e38-183a-43bd-bd42-8a053ba872c9"/>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="3"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{soCMND}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="5bdbdd7e-c31b-45ca-bf07-3811608d0906">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="80" height="30" uuid="7c9dc70a-6eac-49f1-b1fe-860a7107006f">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[Số ĐT]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="30" uuid="b5354a60-73a4-46b0-bdb0-512c6a8e3387"/>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="3"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{soDT}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="d111f1e1-5c99-4404-98e0-3a2bf7eb425d">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="76864b99-57ce-4e83-ae14-a0cba501c398">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[Địa Chỉ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="30" uuid="009280a5-a86f-42e5-94c2-585dff40c4f1"/>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="3"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{diaChi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="72" uuid="b4e65d9b-91c0-43eb-b966-634d6a67069e">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="72" height="30" uuid="17818ecb-d7f0-4fef-9efc-509e3686ff7a">
+									<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+								</reportElement>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="5"/>
+								</textElement>
+								<text><![CDATA[Tên Chức Vụ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="72" height="30" uuid="b96f8436-8790-4445-9708-25cf82bd25b1"/>
+								<textElement verticalAlignment="Middle">
+									<font size="11"/>
+									<paragraph firstLineIndent="3"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tenChucVu}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+</jasperReport>
